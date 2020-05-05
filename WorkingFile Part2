@@ -1,0 +1,48 @@
+############################################################################################################################
+while True:
+    query = input('Type ADD to create a prince score, or type CALCULATE to calculate implementation probability: ')
+    if query == 'CALCULATE':
+        break
+    elif query == 'ADD':
+        est_pos = input('Estimate Position from -5-5: ')
+        est_pow = input('Estimate Power from 1-5: ')
+        est_pri = input('Estimate Priority from 1-5: ')
+        est_pos = int(est_pos)
+        est_pow = int(est_pow)
+        est_pri = int(est_pri)
+    elif est_pos <-5:
+        print('[ERROR]: Position Estimate must be between -5 and 5')
+    elif est_pos > 5:
+        print('[ERROR]: Position Estimate must be between -5 and 5')
+    elif est_pow < 1:
+        print('[ERROR]: Power Estimate must be between 1 and 5')
+    elif est_pow > 5:
+        print('[ERROR]: Power Estimate must be between 1 and 5')
+    elif est_pri < 1:
+        print('[ERROR]: Priority Estimate must be between 1 and 5')
+    elif est_pri > 5:
+        print('[ERROR]: Priority Estimate must be between 1 and 5')
+    else:
+        princescore = est_pos * est_pri * est_pow
+    princescore
+            
+ 
+PrinceList = [ ]
+PrinceList.append(princescore)
+print("Prince Scores are:", PrinceList)
+
+for num in PrinceList:
+    num = int(num)
+
+sum1 = 0
+for num in PrinceList:
+    sum1 += int(num)
+
+sum2 = 0
+for num in PrinceList:
+    if (num) >= 0:
+        sum2 += int(num)
+  
+Prob = (sum2 / sum1) * 100
+print('This policy has a', Prob,'% likelihood of implementation')
+############################################################################################################################
