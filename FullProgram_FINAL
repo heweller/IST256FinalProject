@@ -26,3 +26,52 @@ try:
         break
 except FileNotFoundError:
     print("Could not find data in file '%s'" % (filename))
+
+PrinceList = list()
+while True:
+    query = input('Type ADD to create a prince score, or type CALCULATE to calculate implementation probability: ')
+    if query == 'CALCULATE':
+        break
+    elif query == 'ADD':
+        try:
+            est_pos = int(input('Estimate Position from -5-5: '))
+            est_pow = int(input('Estimate Power from 1-5: '))
+            est_pri = int(input('Estimate Priority from 1-5: '))
+            princescore = est_pos * est_pri * est_pow
+            princescore
+            PrinceList.append(princescore)
+        except:
+            if est_pos <-5:
+                print('[ERROR]: Position Estimate must be between -5 and 5')
+            elif est_pos == 0:
+                est_pos == 1
+            elif est_pos <-5:
+                print('[ERROR]: Position Estimate must be between -5 and 5')
+            elif est_pos > 5:
+                print('[ERROR]: Position Estimate must be between -5 and 5')
+            elif est_pow < 1:
+                print('[ERROR]: Power Estimate must be between 1 and 5')
+            elif est_pow > 5:
+                print('[ERROR]: Power Estimate must be between 1 and 5')
+            elif est_pri < 1:
+                print('[ERROR]: Priority Estimate must be between 1 and 5')
+            elif est_pri > 5:
+                print('[ERROR]: Priority Estimate must be between 1 and 5')
+
+
+print("Prince Scores are:", PrinceList)
+
+for num in PrinceList:
+    num = int(num)
+
+sum1 = 0
+for num in PrinceList:
+    sum1 += int(num)
+
+sum2 = 0
+for num in PrinceList:
+    if (num) >= 0:
+        sum2 += int(num)
+
+prob = (sum1 / sum2) * 100
+print('This policy has a', prob,'% likelihood of implementation')
